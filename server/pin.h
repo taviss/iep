@@ -4,9 +4,6 @@
 #define PIN_DIRECTION_INPUT 0
 #define PIN_DIRECTION_OUTPUT 1
 
-#include "inputpin.h"
-#include "outputpin.h"
-
 class Pin
 {
     public:
