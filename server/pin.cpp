@@ -40,3 +40,23 @@ Pin* Pin::setDirection(int direction) {
             return nullptr;
     }
 }
+
+Pin* Pin::changeDirection() {
+    switch(direction)
+    {
+        case PIN_DIRECTION_INPUT:
+        {
+            OutputPin* outputPin;
+            outputPin = new OutputPin(this->pinNumber);
+            return outputPin;
+        }
+        case PIN_DIRECTION_OUTPUT:
+        {
+            InputPin* inputPin;
+            inputPin = new InputPin(this->pinNumber, DEFAULT_PULL_UP);
+            return inputPin;
+        }
+        default:
+            return nullptr;
+    }
+}
