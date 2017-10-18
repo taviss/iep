@@ -9,6 +9,8 @@ class InputPin : public Pin
 {
     public:
         InputPin(int pinNumber, int pullUp);
+        void set(int data);
+        int get();
 
     private:
         int pullUp;
