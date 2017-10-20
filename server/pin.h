@@ -3,24 +3,24 @@
 
 #include "bcm2835.h"
 
-#define PIN_DIRECTION_INPUT 0
-#define PIN_DIRECTION_OUTPUT 1
+#define PIN_DIRECTION_INPUT BCM2835_GPIO_FSEL_INPT
+#define PIN_DIRECTION_OUTPUT BCM2835_GPIO_FSEL_OUTP
 
 class Pin
 {
     public:
-        Pin(int pinNumber, int direction);
-        int getDirection();
-        Pin* setDirection(int direction);
+        Pin(uint8_t pinNumber, uint8_t direction);
+        uint8_t getDirection();
+        Pin* setDirection(uint8_t direction);
         Pin* changeDirection();
-        virtual void set(int data)=0;
-        virtual int get()=0;
+        virtual void set(uint8_t data)=0;
+        virtual uint8_t get()=0;
 
     private:
 
     protected:
-        int pinNumber;
-        int direction;
+        uint8_t pinNumber;
+        uint8_t direction;
 
 
 };

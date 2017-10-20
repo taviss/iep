@@ -1,22 +1,22 @@
 #include "inputpin.h"
 
-InputPin::InputPin(int pinNumber, int pullUp) : Pin(pinNumber, PIN_DIRECTION_INPUT)
+InputPin::InputPin(uint8_t pinNumber, uint8_t pullUp) : Pin(pinNumber, PIN_DIRECTION_INPUT)
 {
     if (!bcm2835_init())
             //cout << "ERROR INIT TODO";
 
-    bcm2835_gpio_fsel(pinNumber, BCM2835_GPIO_FSEL_INPT);
+    bcm2835_gpio_fsel(pinNumber, PIN_DIRECTION_INPUT);
     bcm2835_gpio_set_pud(pinNumber, pullUp);
 
     this->pullUp = pullUp;
 }
 
-void InputPin::set(int data)
+void InputPin::set(uint8_t data)
 {
     (void)data;
 }
 
-InputPin::get()
+uint8_t InputPin::get()
 {
     if (!bcm2835_init())
             return 1;
