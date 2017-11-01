@@ -3,8 +3,6 @@
 
 #include "pin.h"
 
-#define DEFAULT_PULL_UP 0
-
 class InputPin : public Pin
 {
     public:

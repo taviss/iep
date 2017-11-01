@@ -3,6 +3,8 @@
 #include <pin.h>
 #include <inputpin.h>
 #include <outputpin.h>
+#include <button.h>
+#include <pwm.h>
 
 int main(int argc, char **argv)
 {
@@ -11,21 +13,19 @@ int main(int argc, char **argv)
     if (!bcm2835_init())
         return 1;
 
-    Pin* pin = new OutputPin(RPI_GPIO_P1_11);
-    while (1)
-    {
-        pin->set(HIGH);
+    Pin* pin = new Button(RPI_GPIO_P1_11);
+    int dCycle = 0;
+    int freq = 500;
+    PWM* pwm = new PWM(dCycle, freq);
 
-        // wait a bit
-        bcm2835_delay(500);
-
-        pin->set(LOW);
-
-        // wait a bit
-        bcm2835_delay(500);
+    while(1) {
+        pin->get();
+        dCycle+=10;
+        pwm->setDutyCycle(dCycle);
+        pwm->reconfigure();
+        if(dCycle==100)
+            dCycle=0;
     }
-    pin = pin->changeDirection();
-    int someData = pin->get();
     bcm2835_close();
     return app.exec();
 }
