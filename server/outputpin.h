@@ -7,12 +7,12 @@
 class OutputPin : public Pin
 {
     public:
-        OutputPin(int pinNumber);
-        void set(int data);
-        int get();
+        OutputPin(uint8_t pinNumber);
+        void set(uint8_t data);
+        uint8_t get();
 
     private:
-        int lastData;
+        uint8_t lastData;
 };
 
 #endif // OUTPUTPIN_H

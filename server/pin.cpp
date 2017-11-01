@@ -7,17 +7,17 @@ Implementați clasa Pin care să conțină numărul pinului, direcția, starea d
 Reimplementați exemplul de blink folosind clasa Pin
 Încercați un Pin de input pentru buton și unul de output pentru LED.
  * */
-Pin::Pin(int pinNumber, int direction)
+Pin::Pin(uint8_t pinNumber, uint8_t direction)
 {
     this->pinNumber = pinNumber;
     this->direction = direction;
 }
 
-Pin::getDirection() {
+uint8_t Pin::getDirection() {
     return this->direction;
 }
 
-Pin* Pin::setDirection(int direction) {
+Pin* Pin::setDirection(uint8_t direction) {
     if(this->direction == direction) {
         return this;
     }
