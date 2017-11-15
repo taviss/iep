@@ -12,7 +12,9 @@ SOURCES += \
     outputpin.cpp \
     inputpin.cpp \
     pwm.cpp \
-    button.cpp
+    button.cpp \
+    serial.cpp \
+    spi.cpp
 
 HEADERS += \
     pin.h \
@@ -20,4 +22,6 @@ HEADERS += \
     inputpin.h \
     bcm2835.h \
     pwm.h \
-    button.h
+    button.h \
+    serial.h \
+    spi.h
