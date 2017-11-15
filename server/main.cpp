@@ -19,6 +19,7 @@ int main(int argc, char **argv)
     PWM* pwm = new PWM(dCycle, freq);
 
     while(1) {
+        //Blocking wait for button press
         pin->get();
         dCycle+=10;
         pwm->setDutyCycle(dCycle);
