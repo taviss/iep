@@ -3,6 +3,7 @@
 
 #include "inputpin.h"
 
+//Test
 class Button : public InputPin
 {
     public:
